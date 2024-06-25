@@ -1,0 +1,8 @@
+{
+  "label": "튜토리얼 - OpenGL",
+  "position": 2,
+  "link": {
+    "type": "generated-index",
+    "description": "OpenGL을 활용한 컴퓨터 그래픽스 실습"
+  }
+}
