@@ -90,6 +90,16 @@ const config = {
         theme: prismThemes.github,
         darkTheme: prismThemes.dracula,
         additionalLanguages: ['cpp', 'glsl', 'diff'],
+        magicComments: [
+          {
+            className: 'code-block-diff-add-line',
+            line: 'diff-add'
+          },
+          {
+            className: 'code-block-diff-remove-line',
+            line: 'diff-remove'
+          }
+        ],
       },
     }),
 };
