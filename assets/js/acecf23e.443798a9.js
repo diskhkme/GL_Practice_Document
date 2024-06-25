@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkgl_practice_document=self.webpackChunkgl_practice_document||[]).push([[1903],{1912:e=>{e.exports=JSON.parse('{"blogBasePath":"/GL_Practice_Document/blog","blogTitle":"Blog"}')}}]);
