@@ -20,23 +20,23 @@ sidebar_position: 2
 
 이제 Visual Studio를 실행하면 아래와 같은 화면이 보일 거고, 새 프로젝트 만들기를 클릭하세요.
 
-![VS New Project](../assets/opengl/installation/img/vs_new_project.png)
+![VS New Project](assets/installation/img/vs_new_project.png)
 
 프로젝트 템플릿에서는 우측 상단에 C++가 선택되어 있는지 확인하시고 **빈 프로젝트**를 선택하세요. 이후 적절한 프로젝트 이름과 경로를 선택하여 프로젝트를 생성하세요. 저의 경우 프로젝트 이름을 `Tutorial`로 해서 `G:/Dev/OpenGL/OpenGL_Tutorial_Project/` 경로 아래에 프로젝트가 생성되도록 했습니다.
 
-![VS Project Template](../assets/opengl/installation/img/vs_project_template.png)
+![VS Project Template](assets/installation/img/vs_project_template.png)
 
-![VS Project Path](../assets/opengl/installation/img/vs_project_path.png)
+![VS Project Path](assets/installation/img/vs_project_path.png)
 
 이제 Visual Studio가 자동으로 실행되며 방금 만든 프로젝트가 열리게 됩니다. C++ 설정을 위해서 먼저 파일을 하나 프로젝트에 추가해 보도록 하겠습니다.
 
 우측 솔루션 탐색기의 "소스 파일"에 우클릭을 한 뒤 "추가▶새 항목" 메뉴를 클릭하면 아래와 같은 창이 나타납니다. "C++ 파일(.cpp)"가 선택된 상태에서 아래 파일 이름을 `main.cpp`로 수정한 뒤 추가 버튼을 클릭하세요.
 
-![VS Project New File](../assets/opengl/installation/img/vs_new_file.png)
+![VS Project New File](assets/installation/img/vs_new_file.png)
 
 그러면 아래 그림처럼 우리 프로젝트에 `main.cpp` 파일이 추가된 것을 확인할 수 있습니다. 또한 이 `main.cpp` 파일이 왼쪽 코드 편집 창에서 자동으로 열려서 내용을 입력할 수 있는 상태가 되었습니다.
 
-![VS Project New File Result](../assets/opengl/installation/img/vs_new_file_result.png)
+![VS Project New File Result](assets/installation/img/vs_new_file_result.png)
 
 :::warning
 이 내용은 C++ 관련한 내용이 아니기 때문에 Visual Studio의 상세 사용법 들을 모두 소개 드리진 않습니다. 최소한으로 필요한 내용만을 따라서 하실 수 있게 알려 드리는 데서 그칩니다.
@@ -56,15 +56,15 @@ sidebar_position: 2
 
 사이트 링크에 들어가셔서 첫 화면의 "Download GLFW 3.X"를 클릭하지 **마시고**, 상단의 "Download" 탭으로 이동하세요. 그리고 **"64-bit Windows binaries"** 를 클릭하여 다운로드 하세요.
 
-![GLFW Download](../assets/opengl/installation/img/glfw_download.png)
+![GLFW Download](assets/installation/img/glfw_download.png)
 
 `glfw-3.X.bin.WIN64` 파일이 다운로드 될 것인데, 압축을 풀어 보면 아래와 같은 파일들이 있을 것입니다. 이 중에서 `include` 폴더와 `lib-vc2022` 폴더, 그리고 `LICENSE.md` 파일을 우리 프로젝트 쪽으로 복사할 것입니다.
 
-![GLFW Files](../assets/opengl/installation/img/glfw_files.png)
+![GLFW Files](assets/installation/img/glfw_files.png)
 
 그러니 프로젝트를 생성한 폴더를 열어서, `.sln` 파일이 있는 위치를 찾아보세요. 아까 프로젝트를 생성할 때 입력한 `<경로>/<프로젝트 이름>` 폴더로 가 보시면 아래와 같이 `<프로젝트 이름>.sln` 파일이 있을 겁니다. 이 위치를 **솔루션 경로**라고 하겠습니다.
 
-![Project Folder](../assets/opengl/installation/img/project_folder.png)
+![Project Folder](assets/installation/img/project_folder.png)
 
 이제 이 솔루견 경로에 `Dependencies` 폴더를 만들고, 그 하위에 다시 `GLFW` 폴더를 만들어 줍니다. 그리고 그 안에 아까 이야기한 GLFW에서 압축을 푼 `include` 폴더와 `lib-vc2022` 폴더와 `LICENSE.md` 파일을 복사해 줍니다.
 
@@ -87,7 +87,7 @@ sidebar_position: 2
 
 페이지 가운데 "Windows 32-bit and 64-bit" 링크를 클릭하면 어딘가로 납치되고, 곧 다운로드가 시작될 겁니다.
 
-![GLEW Download](../assets/opengl/installation/img/glew_download.png)
+![GLEW Download](assets/installation/img/glew_download.png)
 
 압축을 풀면 나오는 것들 중, `doc`폴더만 **제외하고** 우리 프로젝트 쪽으로 복사할 것입니다. 결과적으로 아래와 같은 구조가 되도록 `GLEW` 폴더를 만들고 복사해 주세요.
 
@@ -113,7 +113,7 @@ sidebar_position: 2
 
 이러한 설정은 Visual Studio의 프로젝트 설정에서 수행을 해야 합니다. 프로젝트 이름을 우클릭해서 가장 아래의 "속성" 메뉴를 클릭해 주세요. 솔루션 이름이 아니고, 프로젝트 이름을 우클릭 해야 하는 것에 유의하세요. 그러면 아래와 같은 창이 나타납니다.
 
-![Project Property](../assets/opengl/installation/img/project_property.png)
+![Project Property](assets/installation/img/project_property.png)
 
 이제 이 창에서 많은 것들을 설정해 주어야 합니다. 잘 따라와 주세요.
 
@@ -122,7 +122,7 @@ sidebar_position: 2
 :::note
 Visual Studio에서는 프로젝트들은 솔루션 하위에 속해 있습니다. 아래 그림에서 그 구조를 볼 수 있는데, 우리는 현재 "Tutorial"이라는 이름의 솔루션 하나와 그 솔루션에 속해있는 "Tutorial"이라는 이름의 프로젝트 하나를 만든 상태입니다.
 
-![Solution Tree](../assets/opengl/installation/img/solution_tree.png)
+![Solution Tree](assets/installation/img/solution_tree.png)
 
 하나의 프로그램을 만들 때에, 최종적으로 빌드할 실행 파일(exe)과, 그 실행 파일에서 사용할 기능들(lib, dll)을 분리해서 개발하는 경우가 많습니다. 따라서 모든 코드들을 하나의 "솔루션" 하위에서 개별적인 "프로젝트"로 관리한다는 것이 Visual Studio의 프로젝트 관리 개념입니다.
 
@@ -249,7 +249,7 @@ int main() {
 
 - 실행 결과 윈도우
 
-![Result](../assets/opengl/installation/img/result.png)
+![Result](assets/installation/img/result.png)
 
 축하 합니다! 🎉🎉🎉 
 
@@ -261,7 +261,7 @@ int main() {
 
 1. 앞서 말씀드렸듯이 우리는 64비트 버전의 GLFW만 설정해 두었기 때문에 64비트 플랫폼으로 빌드해야 올바로 동작합니다. 또한 무언가 문제가 생겼을 때 파악하기 쉽도록 하기 위해서는 Debug 빌드를 통해 확인하는 것이 좋습니다. 앞으로는 항상 Visual Studio 상단을 아래와 같이 설정한 상태에서 진행할 예정이니, 뭔가 문제가 생기면 이 부분이 올바로 되어 있는지 체크하세요.
 
-![Note Platform](../assets/opengl/installation/img/note_platform.png)
+![Note Platform](assets/installation/img/note_platform.png)
 
 2. 빌드를 한다는 것은 exe 파일을 만든다는 이야기입니다. F5를 누르게 되면 솔루션 경로(어디인지 기억 하시죠?)에 `Build/x64Debug/Tutorial.exe` 파일이 생성됩니다. 이 파일을 더블클릭 해 보시면 우리가 만든 프로그램을 별도로 실행해 볼 수 있습니다.
 
@@ -280,6 +280,6 @@ int main() {
 ---
 
 ## 관련 링크
-- [소스 코드](../assets/opengl/installation/src/main.cpp)
+- [소스 코드](assets/opengl/installation/src/main.cpp)
 - [GLFW(Graphics Library FrameWork)](https://www.glfw.org/)
 - [GLEW(OpenGL Extension Wrangler Library)](https://glew.sourceforge.net/)

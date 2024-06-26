@@ -16,7 +16,7 @@ sidebar_position: 3
 
 이 장에서는 이해를 돕기 위해 안정성은 좀 떨어지지만, 꼭 필요한 코드만을 남긴 상태에서 다시 출발해 보도록 하겠습니다. 욕심이 있으신 분들은 기존의 좀 더 완전한 코드에서 스스로 추가 작성하여 시작하셔도 됩니다.
 
-[시작 코드](../assets/opengl/vertex_buffer/src/main_start.cpp)는 아래와 같고, 간단한 코멘트를 남겨 두었습니다. 실행 결과는 이전 문서에서와 동일할 것이라는 것을 예상하실 수 있을 겁니다.
+[시작 코드](assets/vertex_buffer/src/main_start.cpp)는 아래와 같고, 간단한 코멘트를 남겨 두었습니다. 실행 결과는 이전 문서에서와 동일할 것이라는 것을 예상하실 수 있을 겁니다.
 
 ```cpp title="main.cpp"
 #define GLEW_STATIC
@@ -124,7 +124,7 @@ while (!glfwWindowShouldClose(window)) // 윈도우가 닫히면 루프 탈출
 
 실행해 보면 아래와 같은 화면이 보입니다.
 
-![Triangle Legacy](../assets/opengl/vertex_buffer/img/triangle_legacy.png)
+![Triangle Legacy](assets/vertex_buffer/img/triangle_legacy.png)
 
 삼각형이 그려졌네요! 그리고 화면 가운데 좌표가 (0,0)이라고 알고 계시면, 왜 저렇게 삼각형이 그려졌는지를 알 수 있으실겁니다. 숫자들을 바꿔서 예상한 대로 삼각형이 다른 방식으로 그려지는지를 한 번 확인해 보세요.
 
@@ -132,7 +132,7 @@ while (!glfwWindowShouldClose(window)) // 윈도우가 닫히면 루프 탈출
 
 위 `glBegin()/glEnd()` 코드는 오래 전 OpenGL의 유산으로, 현대에는 사용되지 않는 방식이라서 그렇습니다. 두 가지 증거를 보여드리면 먼저 OpenGL의 레퍼런스를 쉽게 찾아볼 수 있는 [docs.gl](https://docs.gl/)에서 `glBegin()`을 찾아 보시면 gl2와 3에는 해당 함수가 있지만 gl4, es2, es3에는 해당 항목이 없다는 것을 알 수 있습니다.
 
-![glBegin in Docs](../assets/opengl/vertex_buffer/img/gl_begin_in_docs.png)
+![glBegin in Docs](assets/vertex_buffer/img/gl_begin_in_docs.png)
 
 또한 StackOverflow에서 관련 검색을 해 보면 이미 11년전(..)에도 오래된 기능이니 사용하지 않는 것이 좋다는 [답변](https://gamedev.stackexchange.com/questions/34108/opengl-vbo-or-glbegin-glend)이 있습니다.
 
@@ -304,7 +304,7 @@ while (!glfwWindowShouldClose(window)) // 윈도우가 닫히면 루프 탈출
 
 예를들어 아래 왼쪽 그림처럼 원래 ARRAY_BUFFER라는 상태에 1번 ID를 가지고 있는 버퍼가 바인딩이 되어 있다가 우리가 `glBindBuffer()` 호출을 통해 2번 ID를 가진 버퍼를 바인딩하면, 오른쪽 그림과 같은 상태가 됩니다.
 
-![Bind Buffer](../assets/opengl/vertex_buffer/img/bind_buffer.png)
+![Bind Buffer](assets/vertex_buffer/img/bind_buffer.png)
 
 따라서 **그 이후에 `glBufferData()` 를 호출했다면 2번 ID 버퍼의 위치에 데이터가 들어가게 됩니다.**
 
@@ -375,7 +375,7 @@ while (!glfwWindowShouldClose(window)) // 윈도우가 닫히면 루프 탈출
 
 이 역시 우리가 프로그램을 따로 작성해서 GPU에 전달해 주어야 하며 이러한 프로그램을 셰이더(Shader)라 합니다.
 
-다다음 문서에서 이러한 셰이더를 작성해 볼 것이니 기대해 주시고, 이 문서에서는 두 가지 내용을 더 말씀 드리고 마치도록 하겠습니다.
+다음 문서에서 이러한 셰이더를 작성해 볼 것이니 기대해 주시고, 이 문서에서는 두 가지 내용을 더 말씀 드리고 마치도록 하겠습니다.
 
 ## 마치며
 
@@ -403,5 +403,7 @@ glDrawArrays(GL_TRIANGLES, 0, 3); // 따라서 1번 버퍼의 데이터로 삼�
 ---
 
 ## 관련 링크
+- [시작 소스 코드](assets/opengl/vertex_buffer/src/main_start.cpp)
+- [종료 소스 코드](assets/opengl/vertex_buffer/src/main_end.cpp)
 - [docs.gl](https://docs.gl/)
 - [GPU 상태 다이어그램 예시](https://webgl2fundamentals.org/webgl/lessons/resources/webgl-state-diagram.html?exampleId=triangle#no-help)
