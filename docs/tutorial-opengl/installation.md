@@ -280,6 +280,6 @@ int main() {
 ---
 
 ## 관련 링크
-- [소스 코드](assets/opengl/installation/src/main.cpp)
+- [소스 코드](assets/installation/src/main.cpp)
 - [GLFW(Graphics Library FrameWork)](https://www.glfw.org/)
 - [GLEW(OpenGL Extension Wrangler Library)](https://glew.sourceforge.net/)

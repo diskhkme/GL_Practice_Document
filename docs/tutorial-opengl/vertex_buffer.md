@@ -403,7 +403,7 @@ glDrawArrays(GL_TRIANGLES, 0, 3); // 따라서 1번 버퍼의 데이터로 삼�
 ---
 
 ## 관련 링크
-- [시작 소스 코드](assets/opengl/vertex_buffer/src/main_start.cpp)
-- [종료 소스 코드](assets/opengl/vertex_buffer/src/main_end.cpp)
+- [시작 소스 코드](assets/vertex_buffer/src/main_start.cpp)
+- [종료 소스 코드](assets/vertex_buffer/src/main_end.cpp)
 - [docs.gl](https://docs.gl/)
 - [GPU 상태 다이어그램 예시](https://webgl2fundamentals.org/webgl/lessons/resources/webgl-state-diagram.html?exampleId=triangle#no-help)
