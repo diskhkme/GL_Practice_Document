@@ -1,5 +1,5 @@
 ---
-sidebar_position: 6
+sidebar_position: 5
 ---
 
 # Index Buffer
@@ -65,7 +65,7 @@ unsigned int indices[] = {
 
 ## 인덱스 버퍼 생성과 데이터 복사
 
-다음은 기존 [정점 버퍼](./vertex_buffer.md)와 유사한 방식으로 GPU에 인덱스 버퍼를 생성하고, 메모리에 값을 복사합니다.
+다음은 기존 [정점 버퍼](./02_vertex_buffer.md)와 유사한 방식으로 GPU에 인덱스 버퍼를 생성하고, 메모리에 값을 복사합니다.
 
 ```cpp title="main.cpp"
 ...
@@ -131,7 +131,7 @@ glBufferData(GL_ELEMENT_ARRAY_BUFFER, 6 * sizeof(unsigned int), indices, GL_STAT
 
 이제 실행해 보면 아래와 같은 화면을 볼 수 있습니다.
 
-![Result](assets/index_buffer/img/result.png)
+![Result](assets/05_index_buffer/img/result.png)
 
 간단한 퀴즈를 내 볼테니 한 번 답변들을 생각해 보세요.
 
@@ -152,4 +152,4 @@ glBufferData(GL_ELEMENT_ARRAY_BUFFER, 6 * sizeof(unsigned int), indices, GL_STAT
 3. `glDrawElements()`의 두 번째 인자를 3으로 바꾸면 오른쪽 아래 삼각형만 그려지게 됩니다. 다른 부분의 코드를 건드리지 않고, 해당 함수만 수정해서 왼쪽 위 삼각형"만" 그려지도록 해 보세요. (검색이 필요하실 겁니다.)
 
 ## 관련 링크
-- [소스 코드](assets/index_buffer/src/main_end.cpp)
+- [소스 코드](assets/05_index_buffer/src/main_end.cpp)

@@ -1,12 +1,12 @@
 ---
-sidebar_position: 4
+sidebar_position: 3
 ---
 
 # Shader and Vertex Attribute
 
 이번 문서에서는 셰이더와 정점(Vertex) 어트리뷰트에 대해 알아보도록 하겠습니다.
 
-이번 문서의 결과로 화면에 삼각형을 그릴 수 있게 될텐데, [정점 버퍼](./vertex_buffer.md)에서 말씀드린 것처럼 "어떻게" 삼각형을 그릴지를 알려줄 셰이더를 통해 알려줄겁니다.
+이번 문서의 결과로 화면에 삼각형을 그릴 수 있게 될텐데, [정점 버퍼](./02_vertex_buffer.md)에서 말씀드린 것처럼 "어떻게" 삼각형을 그릴지를 알려줄 셰이더를 통해 알려줄겁니다.
 
 또한 데이터를 "어떻게 읽어야 하는지"도 알려주어야 하는데 이를 위해 정점 어트리뷰트를 정의해야 합니다. (정점 버퍼 마지막에 말씀드린, 점이 2개인지 3개인지 어떻게 아느냐 하는 문제가 여기에서 해결됩니다.)
 
@@ -254,9 +254,9 @@ glfwTerminate();
 
 어떤 코드를 추가해야 하냐고요? 아무것도 추가할 필요가 없습니다! 아래 그림을 통해 설명해 보죠.
 
-![Buffer Program State](assets/shader_and_vertex_attribute/img/buffer_program_state.png)
+![Buffer Program State](assets/03_shader_and_vertex_attribute/img/buffer_program_state.png)
 
-[지난 문서](vertex_buffer.md)의 그림과 비슷한데 이번에는 Program(=셰이더) 바인딩 포인트와 프로그램들이 추가되었습니다.
+[지난 문서](02_vertex_buffer.md)의 그림과 비슷한데 이번에는 Program(=셰이더) 바인딩 포인트와 프로그램들이 추가되었습니다.
 
 그림에 요약된 대로, GPU에서는 `glDrawArrays()` 명령을 받게 되면, 현재 ARRAY_BUFFER와 PROGRAM에 바인딩되어있는 그 데이터를 가지고 삼각형을 그릴 뿐입니다. 심플하죠.
 
@@ -276,7 +276,7 @@ glfwTerminate();
 
 ## 정점 어트리뷰트
 
-정점 어트리뷰트는 [지난 시간의 마치며](vertex_buffer.md#마치며)에서 언급했던 두 번째 문제와 관련이 있습니다.
+정점 어트리뷰트는 [지난 시간의 마치며](02_vertex_buffer.md#마치며)에서 언급했던 두 번째 문제와 관련이 있습니다.
 
 우리가 버퍼에 float값 6개를 복사해 두었는데 이 데이터를 도대체 어떻게 해석해서 써먹어야 하는지를 셰이더에게 알려주어야 하는 과정이 빠져 있습니다.
 
@@ -322,7 +322,7 @@ layout(location = 0) in vec4 position;
 
 개념적으로 그려 보자면 아래와 같은 상태로 볼 수 있겠습니다.
 
-![Buffer Attrib](assets/shader_and_vertex_attribute/img/vertex_attrib.png)
+![Buffer Attrib](assets/03_shader_and_vertex_attribute/img/vertex_attrib.png)
 
 :::warning
 위 그림은 말 그대로 이해를 돕기 위해 "개념적으로" 그려진 그림이며 실제 GPU 내부 동작과는 다릅니다.
@@ -330,7 +330,7 @@ layout(location = 0) in vec4 position;
 
 결과적으로 실행해 보면 아래 그림과 같이 드디어 삼각형이 그려진 것을 볼 수 있습니다!
 
-![Result](assets/shader_and_vertex_attribute/img/result.png)
+![Result](assets/03_shader_and_vertex_attribute/img/result.png)
 
 삼각형 하나 그리는 것이 쉽지 않지요? 하지만 OpenGL이 가장 간단합니다. Direct3D 11(좀 더 어려움), Direct3D 12/Vulkan(매우 어려움)에 비하면 천사입니다. 
 
@@ -387,6 +387,6 @@ void main()
 ---
 
 ## 관련 링크
-- [소스 코드](assets/shader_and_vertex_attribute/src/main_end.cpp)
+- [소스 코드](assets/03_shader_and_vertex_attribute/src/main_end.cpp)
 - [learnopengl.com GLSL 셰이더](https://learnopengl.com/Getting-started/Shaders)
 

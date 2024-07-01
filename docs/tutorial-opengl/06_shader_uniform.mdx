@@ -1,12 +1,12 @@
 ---
-sidebar_position: 7
+sidebar_position: 6
 ---
 
 # Shader Uniform
 
 이번 문서에서는 셰이더의 유니폼 변수의 의미와 간단한 사용법을 알아볼 것입니다.
 
-정점 셰이더의 입력으로 전달할 수 있는 데이터는 크게 두 종류가 있는데, 한 가지가 이전에 알아본 [정점 어트리뷰트](./shader_and_vertex_attribute.md)이고, 다른 한 가지가 이번 시간에 알아볼 유니폼입니다.
+정점 셰이더의 입력으로 전달할 수 있는 데이터는 크게 두 종류가 있는데, 한 가지가 이전에 알아본 [정점 어트리뷰트](./03_shader_and_vertex_attribute.md)이고, 다른 한 가지가 이번 시간에 알아볼 유니폼입니다.
 
 ## 유니폼
 
@@ -16,7 +16,7 @@ sidebar_position: 7
 
 간단한 예를 들어 보면, 각 정점의 위치값은 정점별로 다를 것입니다. 우리가 지난 시간에 작성한 코드를 기준으로는 보면, 그리기를 수행할 시점에 4개의 셰이더 프로그램이 실행될 것이고, 각 셰이더 프로그램의 `position` 어트리뷰트에 각각 `(-0.5f, -0.5f)`, `(0.5f, -0.5f)`, `(0.5f,  0.5f)`, `(-0.5f,  0.5f)` 값이 할당되어 있을 것입니다.
 
-잘 기억이 나지 않는다면 [어트리뷰트 개념도](shader_and_vertex_attribute.md#정점-어트리뷰트)를 참고하세요.
+잘 기억이 나지 않는다면 [어트리뷰트 개념도](03_shader_and_vertex_attribute.md#정점-어트리뷰트)를 참고하세요.
 
 만일 우리가 이 사각형을 오른쪽으로 0.5만큼 이동시키고 싶다면 어떻게 해야 할까요? 지금까지 배운 내용만으로는 먼저 `positions` 배열(CPU-side)의 X값들에 0.5씩을 더해서 새로운 배열을 만들고, 그 데이터를 다시 GPU로 복사해서 넘긴 뒤에 그리기를 수행해야 합니다.
 
@@ -89,13 +89,13 @@ while (!glfwWindowShouldClose(window))
 
 이제 실행을 해보면 아래와 같은 결과를 보실 수 있습니다.
 
-![Result1](assets/shader_uniform/img/result1.png)
+![Result1](assets/06_shader_uniform/img/result1.png)
 
 계획한 대로 사각형이 오른쪽으로 잘 이동해 있네요.
 
 지금 상황을 개념적으로 그림으로 표현해 보면 아래와 같습니다. 유니폼은 해당 셰이더 프로그램 전체가 동일한 값을 사용한다는 것이 핵심입니다.
 
-![Uniform Diagram](assets/shader_uniform/img/uniform_diagram.png)
+![Uniform Diagram](assets/06_shader_uniform/img/uniform_diagram.png)
 
 
 ## 유니폼을 사용한 애니메이션
@@ -139,7 +139,7 @@ frame count 관련 코드는 이제 그다지 필요가 없어서 지우겠습�
 
 이제 프로그램을 실행해 보면 아래와 같이 움직이는 장면을 보실 수 있을겁니다.
 
-![Result2](assets/shader_uniform/img/result2.gif)
+![Result2](assets/06_shader_uniform/img/result2.gif)
 
 좀 더 자세히 설명해 보자면 아래와 같습니다.
 
@@ -175,6 +175,6 @@ frame count 관련 코드는 이제 그다지 필요가 없어서 지우겠습�
 ---
 
 ## 관련 링크
-- [main.cpp 소스 코드](assets/shader_uniform/src/main_end.cpp)
-- [basic.shader 소스 코드](assets/shader_uniform/src/basic.shader)
+- [main.cpp 소스 코드](assets/06_shader_uniform/src/main_end.cpp)
+- [basic.shader 소스 코드](assets/06_shader_uniform/src/basic.shader)
 - [glUniform](https://docs.gl/gl3/glUniform)

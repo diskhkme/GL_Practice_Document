@@ -1,5 +1,5 @@
 ---
-sidebar_position: 5
+sidebar_position: 4
 ---
 
 # Parse Shader from File
@@ -226,7 +226,7 @@ glUseProgram(shaderID);
 ---
 
 ## 관련 링크
-- [코드](assets/parse_shader_from_file/src/main_end.cpp)
-- [셰이더](assets/parse_shader_from_file/src/basic.shader)
+- [코드](assets/04_parse_shader_from_file/src/main_end.cpp)
+- [셰이더](assets/04_parse_shader_from_file/src/basic.shader)
 
 
