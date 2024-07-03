@@ -56,7 +56,7 @@ C++에서 `void*` 는 실제 타입과 관계없이 주소값을 지정할 수 �
 
 ```cpp title="VertexBuffer.cpp"
 #include "VertexBuffer.h"
-#include "GL/glew.h"
+#include <GL/glew.h>
 
 VertexBuffer::VertexBuffer(const void* data, unsigned int size)
 {
@@ -176,7 +176,7 @@ public:
 
 ```cpp title="IndexBuffer.cpp"
 #include "IndexBuffer.h"
-#include "GL/glew.h"
+#include <GL/glew.h>
 
 IndexBuffer::IndexBuffer(const unsigned int* data, unsigned int count)
 	: count { count }
