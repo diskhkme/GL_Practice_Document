@@ -370,9 +370,23 @@ void VertexArray::Unbind() const
 
 기존과 동일한 코드를 단순 호출하는 부분을 빼면 역시나 `AddBuffer()` 메소드만 보면 될 것 같습니다. 호출할 때는 데이터가 들어있는 `VertexBuffer` 객체와 어떻게 읽어야 하는지를 기술한 `VertexBufferLayout` 객체를 넘겨줍니다. 그리고 레이아웃에 들어있는 요소들을 순회하면서 구성하는 개수와 자료형을 기반으로 offset 값을 계산하여 적절한 매개변수들로 `glVertexAttribPointer()`를 호출해 줍니다. offset 이외의 나머지 값들은 이미 `VertexBufferLayout`들이 계산해 가지고 있도록 했기 때문에 접근해서 넘겨주기만 하면 되죠. 
 
+<details>
+<summary>Index Buffer는 왜 포함을 안시키나요?</summary>
+
+VAO에 기록해 두는 것은 정점 데이터뿐만 아니라 인덱스 데이터까지 포함됩니다. 따라서 위 `AddBuffer()`에 인덱스까지 포함하지 않는 것이 이상해 보이실 수도 있는데요, 이는 인덱스 버퍼(GL_ELEMENT_ARRAY_BUFFER)의 VAO에서의 특성 때문입니다. 그 특성은 인덱스 버퍼는 하나만 VAO에 기록이 가능하다는 것이죠. 반면 정점 버퍼(어트리뷰트를 위한)는 여러 개 기록할 수 있습니다. 제가 몇 번 링크해 드린 OpenGL State Diagram에도 이 그림이 잘 표현되어 있습니다. 
+
+![State Diagram](./assets/09_vertex_array_and_layout/img/state_diagram.png)
+
+따라서 다른 인덱스를 사용해 그리려면 VAO에 IBO를 새로 기록해야 하기 때문에 VBO-IBO를 통합해서 기록하는 것은 유연성이 떨어집니다. 물론 우리 학습 코드에서는 이런 경우가 아마도 없을 것 같지만, 위와 같은 이유로 일단은 분리된 설계로 남겨 두었습니다.
+
+</details>
+
 그럼 이제 사용을 해 볼까요?
 
 ```cpp title="main.cpp"
+//diff-add
+#include "VertexArray.h"
+
 ...
 //--- 사각형 VAO 설정
 //diff-remove
@@ -449,7 +463,7 @@ VAO를 직접 생성과 바인딩 했던 부분을 모두 `VertexArray`에 위�
 
 1. 이전과 마찬가지로 삼각형에 대한 코드를 이번 장에서 구현한 `VertexArray`와 `VertexBufferLayout`을 사용하도록 스스로 수정해 보세요. 삼각형 셰이더는 아직 layout이 `a_position` 밖에 없다는 점에 유의하시고요.
 
-2. 만일 동일한 정점 데이터가 아래와 같이 구성되어 있다고 해 봅시다. 이 경우에도 동일한 장면을 그리고 싶다면 어떻게 코드를 수정해 볼 수 있을까요? 기존 데이터 구성과 아래 데이터 구성을 모두 사용할 수 있는 최소한의 수정으로요.
+2. 만일 동일한 모델에 대한 정점 데이터가 아래와 같이 두 개의 배열로 구성되어 있다고 해 봅시다. 이 경우에도 동일한 장면을 그리고 싶다면 어떻게 코드를 수정해야 할까요?
 
 ```cpp
 float positions[] = {
@@ -458,12 +472,16 @@ float positions[] = {
      0.5, -0.5, //1번 vertex
      0.5,  0.5, //2번 vertex
     -0.5,  0.5, //3번 vertex
+};
+
+float colors[] = {
     //r    g    b    a
     1.0, 0.0, 0.0, 1.0, //0번 vertex
     0.0, 1.0, 0.0, 1.0, //1번 vertex
     0.0, 0.0, 1.0, 1.0, //2번 vertex
     0.8, 0.2, 0.3, 1.0, //3번 vertex
 };
+
 ```
 
 ---
