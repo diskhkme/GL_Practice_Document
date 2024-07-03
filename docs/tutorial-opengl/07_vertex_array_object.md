@@ -468,9 +468,7 @@ glfwMakeContextCurrent(window);
 
 1. [VAO를 사용하지 않는 코드 부분](#multiple-objects---without-vao)에서는 사실 VAO를 사용하지 "않은" 것이 아니라 "기본(default) VAO"를 사용하고 있었습니다. 우리가 명시적으로 만들지 않아도 사실 기본 VAO가 하나 있어서 우리가 거기에 버퍼를 바인딩하고, 어트리뷰트 포인터를 설정한 뒤 사각형을 그린 것입니다. 그리고 그 뒤에 삼각형을 그릴때는 다시 기본 VAO에다가 다른 상태를 설정하고 그린 것입니다.
 
-2. VBO에 기록되는 정보는 사실 조금 미묘합니다. VBO의 경우는 버퍼 핸들(ID)만이기 때문에 예를들어 아래처럼 실제 데이터를 복사하는 `glBufferData()`는 VAO 언바인딩 이후에, 렌더링 전에만 이루어져도 무방하긴 합니다. 반면 어트리뷰트 포인터와 IBO는 반드시 VAO 언바인딩 전에 이루어져야 합니다.
-
-물론 특수한 상황에서
+2. VBO에 정확히 어떤 정보들이 기록되는지는 사실 조금 더 복잡합니다. VBO의 경우는 버퍼 핸들(ID)만이기 때문에 예를들어 아래처럼 실제 데이터를 복사하는 `glBufferData()`는 VAO 언바인딩 이후에, 렌더링 전에만 이루어져도 무방하긴 합니다. 반면 어트리뷰트 포인터와 IBO(Bind & BufferData)는 반드시 VAO 언바인딩 전에 이루어져야 합니다. 물론 특수한 상황에서 이런 속성을 잘 활용할 수도 있겠지만 여기서는 그렇게 깊이 들어가지는 않도록 하겠습니다. 궁금하신 분은 [Stackoverflow의 글](https://stackoverflow.com/questions/26552642/when-is-what-bound-to-a-vao) 을 참고하세요.
 
 ```cpp
 unsigned int square_vao;
@@ -498,8 +496,16 @@ glBindBuffer(GL_ARRAY_BUFFER, 0);
 glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0); 
 ```
 
+## 연습 문제
+
+1. 두 물체를 그리는 셰이더를 바꾸어 사각형이 빨간색으로, 삼각형이 노란색으로 그려지게 해 보세요. 셰이더 코드를 수정하지 않고 렌더링 루프 내의 코드만 수정해서요.
+
+2. VAO를 추가하여 화면에 삼각형이 하나 더 그려지도록 해 보세요. 이렇게 추가한 삼각형은 `basic.shader` 프로그램을 사용하여 노란색으로 그려져야 합니다.
+
 ---
 
 ## 관련 링크
+- [최종 소스코드](assets/07_vertex_array_object/src/main_end.cpp)
 - [VAO 사용하지 않는 코드](assets/07_vertex_array_object/src/main_without_vao.cpp)
 - [learopengl.com VAO 섹션](https://learnopengl.com/Getting-started/Hello-Triangle)
+- [VAO State가 바인딩하는 것들](https://stackoverflow.com/questions/26552642/when-is-what-bound-to-a-vao)
