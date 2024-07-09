@@ -1,5 +1,5 @@
 ---
-sidebar_position: 11
+sidebar_position: 12
 ---
 
 # Window Abstraction and Input Handling
@@ -33,6 +33,9 @@ public:
 	bool GetShouldClose() { return glfwWindowShouldClose(mainWindow); }
 
 	void SwapBuffers() { glfwSwapBuffers(mainWindow); }
+
+    int GetBufferWidth() { return width; }
+	int GetBufferHeight() { return height; }
 
 private:
 	GLFWwindow* mainWindow;
@@ -171,6 +174,9 @@ int main(void)
 ```cpp title="Window.h"
     ...
     void SwapBuffers() { glfwSwapBuffers(mainWindow); }
+
+    int GetBufferWidth() { return width; }
+	int GetBufferHeight() { return height; }
 
     //diff-add
     bool* GetKeys() {return keys;}

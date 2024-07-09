@@ -26,7 +26,7 @@ public:
 
 private:
 	GLFWwindow* mainWindow;
-	int width, height; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Å©ï¿½ï¿½
+	int width, height; //À©µµ¿ìÀÇ Å©±â
 
 	bool keys[1024];
 	float lastX, lastY;
