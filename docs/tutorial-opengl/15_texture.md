@@ -169,7 +169,6 @@ Texture::Texture(const std::string& path)
     :texObject{ 0 }, filePath{ path }, texBuffer{ nullptr }, 
     width{ 0 }, height{ 0 }, channel{ 0 }
 {
-    stbi_set_flip_vertically_on_load(1); 
     texBuffer = stbi_load(path.c_str(), &width, &height, &channel, 4);
 
     glGenTextures(1, &texObject);
@@ -208,8 +207,6 @@ void Texture::Unbind() const
 ```
 
 생성자 부분에서 이미지를 로딩하고 GPU에 텍스처 데이터를 복사하는 것 까지 한꺼번에 수행합니다.
-
-`stbi_set_flip_vertically_on_load(1)`는 텍스처를 위아래로 뒤집는 연산을 수행합니다. stb_image가 저장하는 텍스처 데이터의 순서와 OpenGL에서 사용하는 텍스처 데이터의 순서가 수직 방향으로 반대기 때문에 이러한 작업을 해 두면 편합니다.
 
 OpenGL API는 `glGenTextures()`를 사용해 GPU에 텍스처 객체를 생성하고, `glBindTexture()`를 사용해 `GL_TEXTURE_2D` 바인딩 포인트에 바인딩 한 뒤에 `glTexImage2D()`를 통해 이미지 데이터를 GPU로 복사합니다.
 

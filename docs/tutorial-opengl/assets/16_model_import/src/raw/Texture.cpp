@@ -19,11 +19,11 @@ Texture::Texture(const std::string& path)
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
 
 	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA8, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, texBuffer);
-	glBindTexture(GL_TEXTURE_2D, 0); // ï¿½ï¿½ï¿½ï¿½Îµï¿½
+	glBindTexture(GL_TEXTURE_2D, 0); // ¾ð¹ÙÀÎµù
 
 	if (texBuffer)
 	{
-		stbi_image_free(texBuffer); //ï¿½ï¿½ï¿½ï¿½ free
+		stbi_image_free(texBuffer); //¹öÆÛ free
 	}
 }
 
