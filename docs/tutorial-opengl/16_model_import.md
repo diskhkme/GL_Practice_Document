@@ -320,7 +320,7 @@ public:
 
 	void LoadModel(const std::string& fileName);
 
-	void RenderModel(Shader shader);
+	void RenderModel(Shader& shader);
 
 private:
 	void LoadNode(aiNode* node, const aiScene* scene);
@@ -392,7 +392,7 @@ void Model::LoadModel(const std::string& fileName)
 	LoadMaterials(scene);
 }
 
-void Model::RenderModel(Shader shader)
+void Model::RenderModel(Shader& shader)
 {
 	for (int i = 0; i < VAOs.size(); i++)
 	{
@@ -554,7 +554,7 @@ meshToTex[2] = 1 // 2번 서브메쉬는 1번 텍스처 사용
 다음은 `RenderModel()` 부분입니다. 이제 `RenderModel()` 기능이 `Renderer`를 활용해 그리기 까지 담당합니다. 그리기를 위해 필요한 정보 중, 셰이더 정보는 `Model`이 가지고 있지 않으므로 매개변수로 받습니다. (유니폼은 Model 외부에서 설정하는 것이 보다 적합)
 
 ```cpp
-void Model::RenderModel(Shader shader)
+void Model::RenderModel(Shader& shader)
 {
     for (int i = 0; i < VAOs.size(); i++)
     {

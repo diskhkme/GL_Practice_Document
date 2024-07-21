@@ -22,7 +22,7 @@ public:
 
 	void LoadModel(const std::string& fileName);
 
-	void RenderModel(Shader shader);
+	void RenderModel(Shader& shader);
 
 private:
 	void LoadNode(aiNode* node, const aiScene* scene);
